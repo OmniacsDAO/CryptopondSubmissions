@@ -5,6 +5,7 @@ The code pulls public OSS metrics, builds rich feature sets, trains a stacked mo
 
 1. A **UMAP viewer dataset** (`6_umap.py`) used in our write-up ([https://research.allo.capital/t/submission-of-entries-to-the-deep-funding-mini-contest/22/11](https://research.allo.capital/t/submission-of-entries-to-the-deep-funding-mini-contest/22/11)).
 2. A **local Shiny dashboard** (`app.R`) that lets you explore the same data interactively.
+3. **Original Code and Data**: https://github.com/OmniacsDAO/deepfundSubmission
 
 Everything below reflects the actual code—no extra features are described.
 
