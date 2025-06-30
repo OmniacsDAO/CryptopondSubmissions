@@ -1,4 +1,3 @@
-````markdown
 # Cryptopond Model Submissions 🏗️🪙
 
 A curated collection of **Omniacs.DAO** data-science & ML workflows that competed on the [Pond](https://cryptopond.xyz) platform and adjacent grant contests.  
@@ -20,11 +19,9 @@ Each sub-folder is a *self-contained* repo with its own README, dataset layout a
 
 ## 🔧 Quick start for *any* submission
 
-```bash
 git clone https://github.com/OmniacsDAO/CryptopondSubmissions.git
 cd CryptopondSubmissions/<project-folder>
 # now follow the 1-2-3 in that folder’s README
-````
 
 All projects were developed on Linux with Python 3.11 (and, where noted, R ≥ 4.3).
 We recommend using a fresh `virtualenv`/`conda` env per project to avoid version clashes.
