@@ -1,5 +1,7 @@
 # GG23 Predictive Funding Challenge
 
+End-to-end workflow for our **GG23 Predictive Funding Challenge** entry on the Pond platform (model page 🔗: [https://cryptopond.xyz/modelfactory/detail/5249184](https://cryptopond.xyz/modelfactory/detail/5249184)).
+
 Minimal R + Python pipeline that builds description embeddings, trains XGBoost regressors, and produces three CSV submissions predicting final funding for every project in **Gitcoin Grants Round 23**.
 
 ---
