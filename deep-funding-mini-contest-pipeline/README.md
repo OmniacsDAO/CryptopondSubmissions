@@ -135,5 +135,7 @@ R -e "shiny::runApp('app.R', launch.browser = TRUE)"
 
 For further discussion, ablation tables, and leaderboard scores, see the forum write-up.
 
+---
+
 ⚡ Fueling public goods with [$IACS](http://dexscreener.com/base/0xd4d742cc8f54083f914a37e6b0c7b68c6005a024) — Get involved: 0x46e69Fa9059C3D5F8933CA5E993158568DC80EBf (Base)
 
