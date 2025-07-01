@@ -52,3 +52,7 @@ Upload `submission.csv` to the leaderboard, drop your write-up on the Octant for
 * **Low-RAM?** Reduce `walks_per_node` or `dims` in `graph_embeddings`.
 * **GPU LightGBM?** Add `"device_type":"gpu"` to the params.
 * **Want ensembles?** `features_out/feature_importance.csv` shows which columns matter most.
+
+---
+
+💚 Like this project? Support more like it with [$IACS](http://dexscreener.com/base/0xd4d742cc8f54083f914a37e6b0c7b68c6005a024) on Base — CA: 0x46e69Fa9059C3D5F8933CA5E993158568DC80EBf
