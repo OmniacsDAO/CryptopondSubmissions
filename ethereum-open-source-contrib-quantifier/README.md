@@ -186,8 +186,12 @@ __Unfortunately UI shortcomings and time contraints prevented us from attmpting 
 
 In the end, __this was an awesome experience that expanded our understanding of Ethereum infrastructure, public goods funding, and even a tad about prediction markets__.  __We’d love to do some research into the use of AI to replicate human judgement__. The process would emulate a RLHF procedure where we’d have the jurors complete a survey on what they think makes for a good infrastructure package, have them perform a few sample comparisons, and then convert these juror preferences into a “juror specific” prompt that can be used to make other comparisons.  We’d then create the feedback loop where AI selected comparisons would be made using the juror prompt and show these comparisons to the juror who would then rate the quality of the selections. That feedback would then be used to update the prompt, repeating the process as we track inter-rater reliability metrics for convergence between the AI and the juror.  Given the write-ups and successful methodologies of the other participants, this approach will likely yield valuable, scalable and accurate results. We look forward to working with all other public goods enthusiasts as we push the mission of an open world onward.
 
+ 
 
+  
 
+  
+ 
 ---
 
 *Maintained with ❤️ by **Omniacs.DAO** – accelerating digital public goods through data.*
