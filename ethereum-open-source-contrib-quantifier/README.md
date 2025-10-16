@@ -4,12 +4,6 @@
 
 The approach that netted us a 6th place placing was motivated by a particularly wide array of sources of variation and uncertainty we experienced throughout the contest. Changing datasets, changing objectives, changing jurors, changing scoring functions and changing deadlines motivated us to pivot from our initial straight forward model building methodology to a grey hat inspired gradient descent hacking approach in an attempt to see if overfitting to the only relatively stable source of truth, the public leaderboard, would net us not only a prize, but insight into which packages were impactful. This is a walk-through of how we were ultimately successful in doing so.
 
-*It is our hope that our candor and slight humor are well met as we describe, in painstaking detail, why we took a rather unorthodox approach to this final iteration of the Ethereum Foundation DeepFunding Challenge.*
-
-<p align="center" width="100%"><img src="images/im1.png" alt="" style="width: 50%; max-width: 600px;"></p>
-
-
-
 ## Phase 1: Walking the Straight and Narrow
 
 For nearly all of our data modelling initiatives we follow what’s called __the DDEMA process__, a procedure where we focus on Definitions-Data-Exploration-Modeling & Action. At first, __the initial definitions and objectives of the ask were clear: “Give weights to source repos such that their summation to the target repo = 1”__. The direction proved to not be so clear very soon after. To kick off the uncertainty, __across the entirety of the tournament we were served various datasets__. Here is but a sample of three datasets supplied to us for during the contest for training. 
