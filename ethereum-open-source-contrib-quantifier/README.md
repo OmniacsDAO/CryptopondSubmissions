@@ -37,41 +37,42 @@ And the sample submission file which had sample weights structured in a format f
 <p align="center" width="100%"><img src="images/im9.png" alt="" style="width: 75%; max-width: 600px;"></p>
 
 With these baseline score totals in tow, __we diligently began our modelling efforts…and got nowhere!__ We tried:
-- fitting a Bradley-Terry model 
-- calculating Elo scores from the number of wins and the multiplier
-- calculating linear combinations of wins and the multiplier as scores
-- fitting random forest models based on repo statistics
-- using ChatGPT to score repos and then create pairwise comparisons
-- a Deep Neural Network trained on Graph Features
-- fit a LightGBM on score derived features
+- fitting a Bradley-Terry model (disigned specifically for pairwise comparisions)
+- calculating Elo scores from the number of wins and the multiplier (provides a natural ranking for competitotirs in a fixed competition)
+- calculating linear combinations of wins and the multiplier as scores (gives the modeller a ton of flexibility in configuring the scores)
+- fitting random forest models based on repo statistics (standard ML approach with given covariates and a target)
+- using ChatGPT to score repos and then create pairwise comparisons (experimental approach attempting to leverage AI to score on its own)
+- a Deep Neural Network trained on Graph Features (experimental approach using network derived features)
+- fit a LightGBM on score derived features (standard ML approach with a known, reliable algorithm that performs well on tabular data)
     
 __None of these approaches netted us anywhere near a winning score.__ It was only much, much later did we realize the fundamental short coming of our implementation of these approaches.
 
 
 ## Phase 2: Bending the Rules
-In the middle of our modeling endeavor, __there was an announcement of updated training data to be released on September 15th__ . It was at this point that we decided to shift our focus away from the traditional modeling approach towards one that utilized all of the submissions we had amassed through the prior weeks of modeling. We were no longer interested in trying to refit each of our prior modeling approaches on the new dataset, irrespective of how similar the new data may or may not be to the prior set. This was the start of our grey hat thinking since, by this time, we’d had over 60 model submissions stored in a spreadsheet.
+In the middle of our modeling endeavor, __there was an announcement of updated training data to be released on September 15th__. It was at this point that we decided to shift our focus away from the traditional modeling approach towards one that utilized all of the submissions we had amassed through the prior weeks of modeling. __We were no longer interested in trying to refit each of our prior modeling approaches on the new dataset__, irrespective of how similar the new data may or may not be to the prior set. __This was the start of our grey hat thinking__ since, by this time, we’d had over 60 model submissions stored in a spreadsheet.
 
 <p align="center" width="100%"><img src="images/im10.gif" alt="" style="width: 100%; max-width: 600px;"></p>
 
-From analyzing the spreadsheet, we derived a few useful insights. These included:
-    • realizing that the weights did not have sum to one and, instead, scores could be used
-    • some repos were already predetermined to have 0 weight
-    • giving a 0 weight to a non-0 weighted package caused large, detrimental swings to the loss score
-    • giving a large weight to a very influential package could substantially improve the loss
-    • giving a large weight to a non-influential package would moderately damage the loss score
- A univariate analysis on the individual repos was performed by taking the various weights we submitted as the independent variable and the resulting scores as the dependent. It was obvious that this wasn’t a proper representation because of the multivariate nature of the loss function’s value space, but it did give us a solid baseline to initialize our search.
+From analyzing the spreadsheet, __we immediately derived a few useful insights__. These included:
+- realizing that the weights did not have sum to one and, instead, scores could be used
+- some repos were already predetermined to have 0 weight
+- __giving a 0 weight to a non-0 weighted package caused large, detrimental swings to the loss score__
+- __giving a large weight to a very influential package could substantially improve the loss__
+- giving a large weight to a non-influential package would moderately damage the loss score
+
+ A __univariate regression analysis on the individual repos was then performed__ by taking the various weights we submitted as the independent variable and the resulting scores as the dependent y. __It was obvious that this wasn’t a proper representation__ because of the multivariate nature of the loss function’s value space, __but it did give us a solid baseline to initialize our search__ because influential packages had strong negative slopes (the higher the weight the lower the loss) while lower performing packages had steep upward sloping lines (suggesting the higher the weight the higher the loss) and baseline performing repos has straight lines (suggesting no real influence on the score beyond being near the average).
 
 <p align="center" width="100%"><img src="images/im11.gif" alt="" style="width: 100%; max-width: 600px;"></p>
 
-It was at this point we created a “Package Weight Score Simulator” in an attempt to check our work by converting weights back into pairwise comparisons and there wise spitting back a Score estimate.  
+It was at this point, __we then went a step further to create a “Package Weight Score Simulator” in an attempt to check our work__ by converting weights back into pairwise comparisons and there wise spit back a Loss estimate.  __The formalization provided gaurdrails for us to quickly iterate, test and experiment with weights quickly.__
 
 <p align="center" width="100%"><img src="images/im12.png" alt="" style="width: 100%; max-width: 600px;"></p>
 
-Performing a grid search to minimize the score of our simulator resulted in our first reasonable breakthrough, a top 10 score.
+One member had __the bright idea to run a grid search for weights that minimized the score of our simulator__ and performed it using some parallelized python code. This resulted in our __first reasonable score and breakthrough, one that came with a top 10 spot__.
 
 <p align="center" width="100%"><img src="images/im13.png" alt="" style="width: 50%; max-width: 600px;"></p>
 
-With our new method and a top 10 score, we then committed to the idea of leaderboard hacking as a way to extract the most reliable weights we could then use to recalibrate our simulator and potentially refit our previous models. We then began to design our grid search.  From our experience with the leaderboard thus far, we knew that we’d need to start with a linear sweep (using values 0 – 9) as weights to get a general feel for how the leaderboard scores would look and then move on to an exponential refinement (using values 1, 2, 4, 8, 16, 32, 64, etc.) to analyze the non-linearity of the effects of singular packages on the scoring function. Unfortunately, we were up against a constraint. CryptoPond’s 3 submission per day rule. We stumbled upon an exploit for which we wrote a script that essentially stacked 20 submissions calls in a single API call and shot them through simultaneously, versus trying to submit them one by one. Turns out the API’s system counter wasn’t fully synced with the evaluator and, as a result, we were able to test a ton of submissions all in the same call.  To “more effectively perform discovery”, we employed a few extra Pond accounts and utilized them to execute the grid search.   This process was going smoothly and netted us a top 3 placing within a day.
+With our new method and a top 10 score, __we then committed to the idea of leaderboard hacking as a way to extract the most reliable weights we could then use to recalibrate our simulator and potentially refit our previous models__. We then began to design our grid search.  __From our experience with the leaderboard thus far__, we knew that __we’d need to start with a linear sweep (using values 0 – 9)__ as weights to get a general feel for how the leaderboard scores would look and __then move on to an exponential refinement (using values 1, 2, 4, 8, 16, 32, 64, etc.)__ to analyze the non-linearity of the effects of singular packages on the scoring function. Unfortunately, __we were up against a constraint, CryptoPond’s 3 submission per day rule.__  AFter some poking around, __we stumbled upon an exploit for which we wrote a script that essentially stacked 20 submissions calls in a single API call__ and shot them through simultaneously versus trying to submit them one by one. Turns out the API’s system counter wasn’t fully synced with the evaluator and, as a result, __we were able to test a ton of submissions all in the same call.__  To “more effectively perform discovery”, we employed a few extra Pond accounts 😏 and utilized them to execute the grid search.  __This process was going smoothly and netted us a top 3 placing within a day.__
 
 
 <p align="center" width="100%"><img src="images/im14.png" alt="" style="width: 75%; max-width: 600px;"></p>
