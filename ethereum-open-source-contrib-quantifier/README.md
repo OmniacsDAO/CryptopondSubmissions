@@ -34,8 +34,8 @@ And the sample submission file with sample weights structured in a format for ea
     • The sample weights
     • 3 Random Dirichlet constructed weightings
 
-![](images/im8.png)
-![](images/im9.png)
+<p align="center" width="100%"><img src="images/im8.png" alt="" style="width: 75%; max-width: 600px;"></p>
+<p align="center" width="100%"><img src="images/im9.png" alt="" style="width: 75%; max-width: 600px;"></p>
 
 With these baseline score totals in tow be diligently began our modelling efforts…and got nowhere! We tried:
     • fitting a Bradley Terry model 
@@ -51,7 +51,7 @@ None of these approaches netted us anywhere near a winning score.
 ## Phase 2: Bending the Rules
 In the middle of our modeling endeavor, there was an announcement of updated training data to be released on September 15th . It was at this point that we decided to shift our focus away from the traditional modeling approach towards one that utilized all of the submissions we had amassed through the prior weeks of modeling. We were no longer interested in trying to refit each of our prior modeling approaches on the new dataset, irrespective of how similar the new data may or may not be to the prior set. This was the start of our grey hat thinking since, by this time, we’d had over 60 model submissions stored in a spreadsheet.
 
-![](images/im10.gif)
+<p align="center" width="100%"><img src="images/im10.gif" alt="" style="width: 100%; max-width: 600px;"></p>
 
 From analyzing the spreadsheet, we derived a few useful insights. These included:
     • realizing that the weights did not have sum to one and, instead, scores could be used
@@ -61,15 +61,15 @@ From analyzing the spreadsheet, we derived a few useful insights. These included
     • giving a large weight to a non-influential package would moderately damage the loss score
  A univariate analysis on the individual repos was performed by taking the various weights we submitted as the independent variable and the resulting scores as the dependent. It was obvious that this wasn’t a proper representation because of the multivariate nature of the loss function’s value space, but it did give us a solid baseline to initialize our search.
 
-![](images/im11.gif)
+<p align="center" width="100%"><img src="images/im11.gif" alt="" style="width: 80%; max-width: 600px;"></p>
 
 It was at this point we created a “Package Weight Score Simulator” in an attempt to check our work by converting weights back into pairwise comparisons and there wise spitting back a Score estimate.  
 
-![](images/im12.png)
+<p align="center" width="100%"><img src="images/im12.png" alt="" style="width: 75%; max-width: 600px;"></p>
 
 Performing a grid search to minimize the score of our simulator resulted in our first reasonable breakthrough, a top 10 score.
 
-![](images/im13.png)
+<p align="center" width="100%"><img src="images/im13.png" alt="" style="width: 50%; max-width: 600px;"></p>
 
 With our new method and a top 10 score, we then committed to the idea of leaderboard hacking as a way to extract the most reliable weights we could then use to recalibrate our simulator and potentially refit our previous models. We then began to design our grid search.  From our experience with the leaderboard thus far, we knew that we’d need to start with a linear sweep (using values 0 – 9) as weights to get a general feel for how the leaderboard scores would look and then move on to an exponential refinement (using values 1, 2, 4, 8, 16, 32, 64, etc.) to analyze the non-linearity of the effects of singular packages on the scoring function. Unfortunately, we were up against a constraint. CryptoPond’s 3 submission per day rule. We stumbled upon an exploit for which we wrote a script that essentially stacked 20 submissions calls in a single API call and shot them through simultaneously, versus trying to submit them one by one. Turns out the API’s system counter wasn’t fully synced with the evaluator and, as a result, we were able to test a ton of submissions all in the same call.  To “more effectively perform discovery”, we employed a few extra Pond accounts and utilized them to execute the grid search.   This process was going smoothly and netted us a top 3 placing within a day.
 
