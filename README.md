@@ -1,4 +1,4 @@
-# Cryptopond Model Submissions 🏗️🪙
+# Cryptopond Model Submissions 🏗️
 
 *Data-science & ML workflows created by **Omniacs.DAO** for the [Cryptopond](https://cryptopond.xyz) platform and allied grant challenges.*
 
