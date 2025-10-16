@@ -14,18 +14,18 @@ The approach that netted us a 6th place placing was motivated by the particularl
 
 For nearly all of our data modelling initiatives we follow what’s called the DDEMA process, a procedure where we focus on Definitions-Data-Exploration-Modeling & Action. The initial definitions and objectives of the ask were clear: “Give weights to source repos such that their summation to the target repo = 1”. We later realized that wasn’t a strict requirement, but more on that later. Across the entirety of the tournament, we were served various datasets. Here is a sample of three of the datasets supplied to us for during the contest for training. 
 
-<p align="center" width="100%"><img src="images/im2.png" alt="" style="width: 100%; max-width: 600px;"></p>
-<p align="center" width="100%"><img src="images/im3.png" alt="" style="width: 100%; max-width: 600px;"></p>
-<p align="center" width="100%"><img src="images/im4.png" alt="" style="width: 100%; max-width: 600px;"></p>
+<p align="center" width="100%"><img src="images/im2.png" alt="" style="width: 50%; max-width: 600px;"></p>
+<p align="center" width="100%"><img src="images/im3.png" alt="" style="width: 50%; max-width: 600px;"></p>
+<p align="center" width="100%"><img src="images/im4.png" alt="" style="width: 50%; max-width: 600px;"></p>
 
 Of these datasets, the most relevant spreadsheets were:
-![](images/im5.png)
+<p align="center" width="100%"><img src="images/im5.png" alt="" style="width: 75%; max-width: 600px;"></p>
 
 The juror data delineated for constructing the weights.
-![](images/im6.png)
+<p align="center" width="100%"><img src="images/im6.png" alt="" style="width: 75%; max-width: 600px;"></p>
 
 The enhanced repo data with stats on popularity and contributors.
-![](images/im7.png)
+<p align="center" width="100%"><img src="images/im7.png" alt="" style="width: 75%; max-width: 600px;"></p>
 
 And the sample submission file with sample weights structured in a format for easy scoring by Pond. This was just enough data for us to begin, and so we did! The first step, before any modeling was to submit a few sample submissions to create a benchmark for our future models. We submitted a few common weighting schemes to see how they fared.  These included:
     • All 0s
