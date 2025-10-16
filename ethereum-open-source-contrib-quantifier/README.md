@@ -85,7 +85,7 @@ While we were at the top, we felt that we might as well brag about it…
 
 <p align="center" width="100%"><img src="images/im16.png" alt="" style="width: 75%; max-width: 600px;"></p>
 
-How did we know our position on the leaderboard wouldn’t last forever? 🤔 First, because we know by nature of overfitting to the leaderboard, we were more subject to the variability introduced by changes in the data.  If new data were to be introduced that happened to NOT be similar to the previous set of data, there was a good chance that our model would lose its place. Secondly, we knew our position wouldn’t last because the contest organizers did just that … they introduced more data at the last minute.  🤦‍♂️
+__How did we know our position on the leaderboard wouldn’t last forever?__ 🤔 First, because we know __by nature of overfitting to the leaderboard, we were more subject to the variability introduced by changes in the data__.  If new data were to be introduced that happened to NOT be similar to the previous set of data, there was a good chance that our model would lose its place. Secondly, we knew our position wouldn’t last because the contest organizers did just what everyone feared … __they introduced more data at the last minute__.  🤦‍♂️
 
 <p align="center" width="100%"><img src="images/im17.png" alt="" style="width: 50%; max-width: 600px;"></p>
 
