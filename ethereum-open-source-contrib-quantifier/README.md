@@ -1,24 +1,23 @@
-# Omniacs.DAO Quantifying Contributions of Open Source Projects to the Ethereum Universe Write-up: Grey Hatting the DeepFunding for Good
+# Omniacs.DAO Quantifying Contributions of Open Source Projects to the Ethereum Universe Write-up: 🎓 Grey Hatting 🎓 for Good 
 
-
-It is our hope that our candor and slight humor are well met as we describe, in painstaking detail, why we took a rather unorthodox approach to this final iteration of the Ethereum Foundation DeepFunding Challenge.
+*It is our hope that our candor and slight humor are well met as we describe, in painstaking detail, why we took a rather unorthodox approach to this final iteration of the Ethereum Foundation DeepFunding Challenge.*
 
 <p align="center" width="100%"><img src="images/im1.png" alt="" style="width: 50%; max-width: 600px;"></p>
 
 
 ## Executive Summary:
 
-The approach that netted us a 6th place placing was motivated by the particularly varied sources of variation and uncertainty we experienced throughout the contest. Changing datasets, changing objectives, changing jurors, changing scoring functions and changing deadlines motivated us to pivot from our initial straight forward model building methodology to a grey hat inspired gradient descent hacking approach in an attempt to see if overfitting to the only relatively stable source of truth, the public leaderboard, would net us not only a prize, but insight into which packages were impactful. This is a walk-through of how we were ultimately successful in doing so.
+The approach that netted us a 6th place placing was motivated by a particularly wide array of sources of variation and uncertainty we experienced throughout the contest. Changing datasets, changing objectives, changing jurors, changing scoring functions and changing deadlines motivated us to pivot from our initial straight forward model building methodology to a grey hat inspired gradient descent hacking approach in an attempt to see if overfitting to the only relatively stable source of truth, the public leaderboard, would net us not only a prize, but insight into which packages were impactful. This is a walk-through of how we were ultimately successful in doing so.
 
 ## Phase 1: Walking the Straight and Narrow
 
-For nearly all of our data modelling initiatives we follow what’s called the DDEMA process, a procedure where we focus on Definitions-Data-Exploration-Modeling & Action. The initial definitions and objectives of the ask were clear: “Give weights to source repos such that their summation to the target repo = 1”. We later realized that wasn’t a strict requirement, but more on that later. Across the entirety of the tournament, we were served various datasets. Here is a sample of three of the datasets supplied to us for during the contest for training. 
+For nearly all of our data modelling initiatives we follow what’s called __the DDEMA process__, a procedure where we focus on Definitions-Data-Exploration-Modeling & Action. At first, __the initial definitions and objectives of the ask were clear: “Give weights to source repos such that their summation to the target repo = 1”__. The direction proved to not be so clear very soon after. To kick off the uncertainty, __across the entirety of the tournament we were served various datasets__. Here is but a sample of three datasets supplied to us for during the contest for training. 
 
 <p align="center" width="100%"><img src="images/im2.png" alt="" style="width: 50%; max-width: 600px;"></p>
 <p align="center" width="100%"><img src="images/im3.png" alt="" style="width: 50%; max-width: 600px;"></p>
-<p align="center" width="100%"><img src="images/im4.png" alt="" style="width: 50%; max-width: 600px;"></p>
+<p align="center" width="25%"><img src="images/im4.png" alt="" style="width: 25%; max-width: 150px;"></p>
 
-Of these datasets, the most relevant spreadsheets were:
+Of these datasets, the most relevant spreadsheets were found to be:
 <p align="center" width="100%"><img src="images/im5.png" alt="" style="width: 75%; max-width: 600px;"></p>
 
 The juror data delineated for constructing the weights.
@@ -27,29 +26,30 @@ The juror data delineated for constructing the weights.
 The enhanced repo data with stats on popularity and contributors.
 <p align="center" width="100%"><img src="images/im7.png" alt="" style="width: 75%; max-width: 600px;"></p>
 
-And the sample submission file with sample weights structured in a format for easy scoring by Pond. This was just enough data for us to begin, and so we did! The first step, before any modeling was to submit a few sample submissions to create a benchmark for our future models. We submitted a few common weighting schemes to see how they fared.  These included:
-    • All 0s
-    • All 1s
-    • Equal proportional weights
-    • The sample weights
-    • 3 Random Dirichlet constructed weightings
+And the sample submission file which had sample weights structured in a format for easy scoring by Pond.__ This was just enough data for us to begin and so we did!__ The first step, before any modeling was to submit a few sample submissions to create a few thresholds we could benchmark our future models against. We submitted a few __common weighting schemes to see how they fared__.  These included:
+- All 0s
+- All 1s
+- Equal proportional weights
+- The sample weights (😏 - hey you never know!)
+- 3 Random Dirichlet constructed weightings
 
 <p align="center" width="100%"><img src="images/im8.png" alt="" style="width: 75%; max-width: 600px;"></p>
 <p align="center" width="100%"><img src="images/im9.png" alt="" style="width: 75%; max-width: 600px;"></p>
 
-With these baseline score totals in tow be diligently began our modelling efforts…and got nowhere! We tried:
-    • fitting a Bradley Terry model 
-    • calculating Elo scores from the number of wins and the multiplier
-    • calculating linear combinations of wins and the multiplier as scores
-    • fitting random forest models based on repo statistics
-    • using ChatGPT to score repos and then create pairwise comparisons
-    • a Deep Neural Network trained on Graph Features
-    • fit a LightGBM on score derived features
-None of these approaches netted us anywhere near a winning score. 
+With these baseline score totals in tow, __we diligently began our modelling efforts…and got nowhere!__ We tried:
+- fitting a Bradley-Terry model 
+- calculating Elo scores from the number of wins and the multiplier
+- calculating linear combinations of wins and the multiplier as scores
+- fitting random forest models based on repo statistics
+- using ChatGPT to score repos and then create pairwise comparisons
+- a Deep Neural Network trained on Graph Features
+- fit a LightGBM on score derived features
+    
+__None of these approaches netted us anywhere near a winning score.__ It was only much, much later did we realize the fundamental short coming of our implementation of these approaches.
 
 
 ## Phase 2: Bending the Rules
-In the middle of our modeling endeavor, there was an announcement of updated training data to be released on September 15th . It was at this point that we decided to shift our focus away from the traditional modeling approach towards one that utilized all of the submissions we had amassed through the prior weeks of modeling. We were no longer interested in trying to refit each of our prior modeling approaches on the new dataset, irrespective of how similar the new data may or may not be to the prior set. This was the start of our grey hat thinking since, by this time, we’d had over 60 model submissions stored in a spreadsheet.
+In the middle of our modeling endeavor, __there was an announcement of updated training data to be released on September 15th__ . It was at this point that we decided to shift our focus away from the traditional modeling approach towards one that utilized all of the submissions we had amassed through the prior weeks of modeling. We were no longer interested in trying to refit each of our prior modeling approaches on the new dataset, irrespective of how similar the new data may or may not be to the prior set. This was the start of our grey hat thinking since, by this time, we’d had over 60 model submissions stored in a spreadsheet.
 
 <p align="center" width="100%"><img src="images/im10.gif" alt="" style="width: 100%; max-width: 600px;"></p>
 
