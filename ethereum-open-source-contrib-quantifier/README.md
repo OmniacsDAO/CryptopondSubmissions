@@ -5,6 +5,10 @@ It is our hope that our candor and slight humor are well met as we describe, in 
 
 ![](images/im1.png)
 
+<div style="text-align: center;">
+  <img src="images/im1.png" alt="Sample Dataset 1" style="width: 50%; max-width: 600px; display: block; margin: 0 auto;">
+</div>
+
 
 ## Executive Summary:
 
