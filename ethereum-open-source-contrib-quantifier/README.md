@@ -140,11 +140,11 @@ The “Provisional” Leaderboard was released and we placed 30th …
 
 <p align="center" width="100%"><img src="images/im29.png" alt="" style="width: 75%; max-width: 600px;"></p>
 
-__…but randomness and juror variance came through for us in the end…__
+__…but randomness and juror variance came through for us in the end. Our efforts were rewarded with a 6th place win where our model will allocate .0458 of the funds and qualify us for a $458 payout for this leaderboard placing.__
 
 <p align="center" width="100%"><img src="images/im30.png" alt="" style="width: 75%; max-width: 600px;"></p>
 
-In typical Omniac fashion, we jokingly celebrated our 6th place finish with a cheeky post on Twitter…
+In typical Omniac fashion, we jokingly celebrated our placing with a cheeky post on Twitter…
 
 <p align="center" width="100%"><img src="images/im31.png" alt="" style="width: 75%; max-width: 600px;"></p>
 
