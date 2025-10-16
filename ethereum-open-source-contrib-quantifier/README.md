@@ -3,11 +3,7 @@
 
 It is our hope that our candor and slight humor are well met as we describe, in painstaking detail, why we took a rather unorthodox approach to this final iteration of the Ethereum Foundation DeepFunding Challenge.
 
-![](images/im1.png)
-
-<p align="center" width="100%">
-    <img src="images/im1.png" alt="Sample Dataset 1" style="width: 50%; max-width: 600px;">
-</p>
+<p align="center" width="100%"><img src="images/im1.png" alt="" style="width: 50%; max-width: 600px;"></p>
 
 
 ## Executive Summary:
@@ -18,9 +14,9 @@ The approach that netted us a 6th place placing was motivated by the particularl
 
 For nearly all of our data modelling initiatives we follow what’s called the DDEMA process, a procedure where we focus on Definitions-Data-Exploration-Modeling & Action. The initial definitions and objectives of the ask were clear: “Give weights to source repos such that their summation to the target repo = 1”. We later realized that wasn’t a strict requirement, but more on that later. Across the entirety of the tournament, we were served various datasets. Here is a sample of three of the datasets supplied to us for during the contest for training. 
 
-![](images/im2.png)
-![](images/im3.png)
-![](images/im4.png)
+<p align="center" width="100%"><img src="images/im2.png" alt="" style="width: 100%; max-width: 600px;"></p>
+<p align="center" width="100%"><img src="images/im3.png" alt="" style="width: 100%; max-width: 600px;"></p>
+<p align="center" width="100%"><img src="images/im4.png" alt="" style="width: 100%; max-width: 600px;"></p>
 
 Of these datasets, the most relevant spreadsheets were:
 ![](images/im5.png)
