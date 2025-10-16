@@ -77,7 +77,7 @@ With our new method and a top 10 score, __we then committed to the idea of leade
 
 <p align="center" width="100%"><img src="images/im14.png" alt="" style="width: 75%; max-width: 600px;"></p>
 
-The main insight from this search was that the multiplier from the training set was creating final weights for some packages that were orders of magnitude larger than others.  None of our traditional methods accounted for this and that is why each one failed. We contemplated sitting in 3rd place for a while, knowing we could further optimize, but we agreed to one last submission, and we accidentally jumped to the top of the leaderboard, with a HUGE lead.
+__One of the biggest insights from this search was that the multiplier from the training set was creating final weights for some packages that were orders of magnitude larger than others and none of our traditional methods accounted for this and thus failed spectacularly.__  Our current technique was testing for these edge cases and was handsomely rewarding us with lower and lower loss values. As this point, we contemplated sitting in 3rd place for a while knowing we could further optimize, but we agreed to one last submission. 😅  And __it was that submission that had us accidentally jumped to the top of the leaderboard with a HUGE lead.__
 
 <p align="center" width="100%"><img src="images/im15.png" alt="" style="width: 75%; max-width: 600px;"></p>
 
@@ -85,19 +85,19 @@ While we were at the top, we felt that we might as well brag about it…
 
 <p align="center" width="100%"><img src="images/im16.png" alt="" style="width: 75%; max-width: 600px;"></p>
 
-How did we know our position on the leaderboard wouldn’t last forever? First, because we know by nature of overfitting to the leaderboard, we were more subject to variability introduced by changes in the data.  If new data were to be introduced that happened to NOT be similar to the previous set of data, there was a good chance that our model would lose its place. Secondly, we knew our position wouldn’t last because the contest organizers did just that…they introduced more data at the last minute…
+How did we know our position on the leaderboard wouldn’t last forever? 🤔 First, because we know by nature of overfitting to the leaderboard, we were more subject to the variability introduced by changes in the data.  If new data were to be introduced that happened to NOT be similar to the previous set of data, there was a good chance that our model would lose its place. Secondly, we knew our position wouldn’t last because the contest organizers did just that … they introduced more data at the last minute.  🤦‍♂️
 
 <p align="center" width="100%"><img src="images/im17.png" alt="" style="width: 50%; max-width: 600px;"></p>
 
-The leaderboard update did indeed change the scores and rank ordering of the top participants, but not by a huge amount.  This gave us even more confidence that our overfitting approach was working. Why?  In simplest terms, because on the backend the contest organizers knew there was inherent variability in the way jurors were making the pairwise selections and were actively trying to reduce variability. We were unaware of the exact mechanisms, but they were attempting to reign in the inherent inconsistencies between jurors and improve consistency even within individual jurors.  This meant that the “new, unforeseen, private” data was, in small ways, starting to converge to something consistent and if we continued seeking to minimize public leaderboard loss, we’d eventually minimize the private leaderboard loss as well. The update to the leaderboard helped confirm this.
+With the update, __the leaderboard update did indeed change the scores and rank ordering of the top participants, but not by a huge amount__.  This gave us even more confidence __that our overfitting approach was working__. Why?  In simplest terms, because __on the backend the contest organizers knew there was inherent variability in the way jurors were making the pairwise selections and were actively trying to reduce variability__. We were unaware of the exact mechanisms, but we knew they existed and the contest organizers were actively attempting to reign in the inherent inconsistencies between jurors and improve consistency even within individual jurors.  __This meant that the “new, unforeseen, private” data was, in small ways, starting to converge to something consistent__ and if we continued seeking to minimize public leaderboard loss, we’d eventually minimize the private leaderboard loss as well. The update to the leaderboard helped confirm this.
 
 <p align="center" width="100%"><img src="images/im18.png" alt="" style="width: 75%; max-width: 600px;"></p>
 
-Newly embolden, and channeling our inner Dr. Victor Von Doom, we alluded to our plan on Twitter.
+Newly embolden, and channeling our inner 🤖 😂 😎 Dr. Victor Von Doom 😎 😂 🤖, we alluded to our plan on Twitter.
 
 <p align="center" width="100%"><img src="images/im19.png" alt="" style="width: 75%; max-width: 600px;"></p>
 
-And just like it says, “Pride comes before a fall”, we left our scripts running too long and the leaderboard went from this…
+And just like it says, “Pride comes before a fall”, __we left our scripts running too long__ and the leaderboard went from this…
 
 <p align="center" width="100%"><img src="images/im20.png" alt="" style="width: 75%; max-width: 600px;"></p>
 
@@ -105,15 +105,15 @@ And just like it says, “Pride comes before a fall”, we left our scripts runn
 
 <p align="center" width="100%"><img src="images/im21.png" alt="" style="width: 75%; max-width: 600px;"></p>
 
-We had accidentally blown up the leaderboard with our submissions.  Turns out the “exponential refinement” routine was starting to produce high scores on nearly every one of our submissions.  We had a backend procedure that allowed us to aggregate the results into one submission that we would then post officially on our account, unfortunately we let the automated scripts run too long and the dummy accounts were getting scored at the top spots.  As we said in the Telegram, “It's one thing to operate neatly in the shadows and then surprise everyone with a cool retrospective, but it is completely different when we vandalize your public leaderboard and it clearly looks botted.” 
+__We had accidentally blown up the leaderboard with all of our submissions!__  Turns out the “exponential refinement” routine was starting to produce high scores on nearly every one of our submissions.  We had a backend procedure that allowed us to aggregate the results into one submission that we would then post officially on our account, unfortunately we let the automated scripts run too long and __the dummy accounts were getting scored at the top spots__.  Considering we'd participated in 3 contests thus far, had a strong appreciation for the opportunity and happened to have forged what we consider friendships within the DeepFunding community, __we couldn't just leave the leaderboard a mess__. As we said in the Telegram, “It's one thing to operate neatly in the shadows and then surprise everyone with a cool retrospective, but it is completely different when we vandalize your public leaderboard and it clearly looks botted.” 
 
 <p align="center" width="100%"><img src="images/im22.png" alt="" style="width: 50%; max-width: 600px;"></p>
 
-Once we realized we blew up the leaderboard, we confessed and immediately worked with Bill @ Pond to fix the leaderboard.
+Once we realized we blew up the leaderboard in the manner we did, we confessed and immediately worked with Bill @ Pond to fix the leaderboard.
 
 <p align="center" width="100%"><img src="images/im23.png" alt="" style="width: 50%; max-width: 600px;"></p>
 
-After confessing, we posted our final submission under the main account, and vowed to forever be on the straight and narrow 
+After confessing, we posted our final submission under the main account, and vowed to forever be on the straight and narrow 🙏.
 
 <p align="center" width="100%"><img src="images/im24.png" alt="" style="width: 50%; max-width: 600px;"></p>
 
@@ -124,16 +124,15 @@ After disclosing our approach, there were some questions as to why someone would
 <p align="center" width="100%"><img src="images/im25.png" alt="" style="width: 50%; max-width: 600px;"></p>
 
 
-…but another reason was because as a team, we’ve had experience with overfit models actually performing well on out-of-sample and out-of-time hold out sets. Overfitting is a problem in the sense that you can not reliably know how your model will perform in the future, but it does not mean the model is inherently flawed. If the new data being exposed to the model has the same “variance-covariance structure” as the previous data, it is highly likely the model will actually perform well. In every instance where we overfit a model, we knew that the underlying data was actively being cleaned to reduce variability and therefore was converging in some form. How did that play out here? Our top 2 bots with the lowest cost at the end of our endeavor…
+… but another reason was because as a team, __we’ve had experience with overfit models actually performing well on out-of-sample and out-of-time hold out sets__. Overfitting is a problem in the sense that you can not reliably know how your model will perform in the future, but it does not mean the model is inherently flawed. __If the new data being exposed to the model has the same “variance-covariance structure” as the previous data, it is highly likely the model will actually perform well__. In every instance where we overfit a model, we knew that the underlying data was actively being cleaned to reduce variability and therefore was converging in some form. How did that play out here? __Our top 2 bots with the lowest loss__ at the end of our endeavor…
 
 <p align="center" width="100%"><img src="images/im26.png" alt="" style="width: 75%; max-width: 600px;"></p>
 
-Actually, ultimately won the contest…
+Actually, __ultimately won the contest__…
 
 <p align="center" width="100%"><img src="images/im27.png" alt="" style="width: 75%; max-width: 600px;"></p>
 
-It wasn’t until the Pond team, rightfully, removed them from the leaderboard, did the leaderboard have a legitimate winner. 
-What happened to the official Omniacs.DAO account? We first made an appeal for randomness to take over….
+It wasn’t until the Pond team, rightfully, removed them from the leaderboard, did the leaderboard have a legitimate winner.  What happened to the official Omniacs.DAO account? We first made an appeal for randomness to take over….
 
 <p align="center" width="100%"><img src="images/im28.png" alt="" style="width: 75%; max-width: 600px;"></p>
 
@@ -141,18 +140,18 @@ The “Provisional” Leaderboard was released and we placed 30th …
 
 <p align="center" width="100%"><img src="images/im29.png" alt="" style="width: 75%; max-width: 600px;"></p>
 
-…but randomness and juror variance came through for us in the end…
+__…but randomness and juror variance came through for us in the end…__
 
 <p align="center" width="100%"><img src="images/im30.png" alt="" style="width: 75%; max-width: 600px;"></p>
 
-We jokingly celebrated with a cheeky post on Twitter…
+In typical Omniac fashion, we jokingly celebrated our 6th place finish with a cheeky post on Twitter…
 
 <p align="center" width="100%"><img src="images/im31.png" alt="" style="width: 75%; max-width: 600px;"></p>
 
 
 ## Addendums, Insights, Take Aways and Extensions
 
-As a little bit of an addendum, we’ll talk about our experience with the supplemental prediction market setup by seer.pm. Seemingly out the blue, the prediction market was announced to the Telegram…
+As a little bit of an addendum, we’ll talk about our experience with the supplemental prediction market setup by seer.pm. Seemingly out the blue, the prediction market was announced to the Telegram …
 
 
 and just viewing the site itself at
