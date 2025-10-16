@@ -1,13 +1,14 @@
 # Omniacs.DAO Quantifying Contributions of Open Source Projects to the Ethereum Universe Write-up: 🎓 Grey Hatting 🎓 for Good 
 
+## Executive Summary:
+
+The approach that netted us a 6th place placing was motivated by a particularly wide array of sources of variation and uncertainty we experienced throughout the contest. Changing datasets, changing objectives, changing jurors, changing scoring functions and changing deadlines motivated us to pivot from our initial straight forward model building methodology to a grey hat inspired gradient descent hacking approach in an attempt to see if overfitting to the only relatively stable source of truth, the public leaderboard, would net us not only a prize, but insight into which packages were impactful. This is a walk-through of how we were ultimately successful in doing so.
+
 *It is our hope that our candor and slight humor are well met as we describe, in painstaking detail, why we took a rather unorthodox approach to this final iteration of the Ethereum Foundation DeepFunding Challenge.*
 
 <p align="center" width="100%"><img src="images/im1.png" alt="" style="width: 50%; max-width: 600px;"></p>
 
 
-## Executive Summary:
-
-The approach that netted us a 6th place placing was motivated by a particularly wide array of sources of variation and uncertainty we experienced throughout the contest. Changing datasets, changing objectives, changing jurors, changing scoring functions and changing deadlines motivated us to pivot from our initial straight forward model building methodology to a grey hat inspired gradient descent hacking approach in an attempt to see if overfitting to the only relatively stable source of truth, the public leaderboard, would net us not only a prize, but insight into which packages were impactful. This is a walk-through of how we were ultimately successful in doing so.
 
 ## Phase 1: Walking the Straight and Narrow
 
