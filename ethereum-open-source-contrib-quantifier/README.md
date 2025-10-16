@@ -1,8 +1,8 @@
 # Omniacs.DAO Quantifying Contributions of Open Source Projects to the Ethereum Universe Write-up: 🎓 Grey Hatting 🎓 for Good 
 
-## Executive Summary:
+## Executive Summary
 
-The approach that netted us a 6th place placing was motivated by a particularly wide array of sources of variation and uncertainty we experienced throughout the contest. Changing datasets, changing objectives, changing jurors, changing scoring functions and changing deadlines motivated us to pivot from our initial straight forward model building methodology to a grey hat inspired gradient descent hacking approach in an attempt to see if overfitting to the only relatively stable source of truth, the public leaderboard, would net us not only a prize, but insight into which packages were impactful. This is a walk-through of how we were ultimately successful in doing so.
+_The approach that netted us a 6th place placing was motivated by a particularly wide array of sources of variation and uncertainty we experienced throughout the contest. Changing datasets, changing objectives, changing jurors, changing scoring functions and changing deadlines motivated us to pivot from our initial straight forward model building methodology to a grey hat inspired gradient descent hacking approach in an attempt to see if overfitting to the only relatively stable source of truth, the public leaderboard, would net us not only a prize, but insight into which packages were impactful. This is a walk-through of how we were ultimately successful in doing so._
 
 ## Phase 1: Walking the Straight and Narrow
 
