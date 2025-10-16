@@ -160,7 +160,7 @@ The announcement also included __a list of participants who were given partial g
 <p align="center" width="100%"><img src="images/im33.png" alt="" style="width: 75%; max-width: 600px;"></p>
 
 After reading the documentation on the [mathematical underpinnings](https://ethresear.ch/t/deep-funding-a-prediction-market-for-open-source-dependencies/23101), the [participation guide](https://docs.google.com/document/d/1N4XVq_hC98j6oV2kaXiDY8YV43JnBlcyz4QhEuA7DXQ/edit?usp=drivesdk), 
-the [market](https://app.seer.pm/markets/10/what-will-be-the-juror-weight-computed-through-huber-loss-minimization-in-the-lo-2?outcome=argotorg%2Fsolidity)  and the [app itself](deep.seer.pm) … we were even more confused 😅. After a few days, there were a few important implementations by the lead engineering Clement that made us a bit more comfortable trying.
+the [market](https://app.seer.pm/markets/10/what-will-be-the-juror-weight-computed-through-huber-loss-minimization-in-the-lo-2?outcome=argotorg%2Fsolidity)  and the [app itself](https://app.seer.pm/) … we were even more confused 😅. After a few days, there were a few important implementations by the lead engineering Clement that made us a bit more comfortable trying.
 
 <p align="center" width="100%"><img src="images/im34.png" alt="" style="width: 50%; max-width: 600px;"></p>
 
