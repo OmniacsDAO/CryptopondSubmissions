@@ -61,11 +61,11 @@ From analyzing the spreadsheet, we derived a few useful insights. These included
     • giving a large weight to a non-influential package would moderately damage the loss score
  A univariate analysis on the individual repos was performed by taking the various weights we submitted as the independent variable and the resulting scores as the dependent. It was obvious that this wasn’t a proper representation because of the multivariate nature of the loss function’s value space, but it did give us a solid baseline to initialize our search.
 
-<p align="center" width="100%"><img src="images/im11.gif" alt="" style="width: 80%; max-width: 600px;"></p>
+<p align="center" width="100%"><img src="images/im11.gif" alt="" style="width: 100%; max-width: 600px;"></p>
 
 It was at this point we created a “Package Weight Score Simulator” in an attempt to check our work by converting weights back into pairwise comparisons and there wise spitting back a Score estimate.  
 
-<p align="center" width="100%"><img src="images/im12.png" alt="" style="width: 75%; max-width: 600px;"></p>
+<p align="center" width="100%"><img src="images/im12.png" alt="" style="width: 100%; max-width: 600px;"></p>
 
 Performing a grid search to minimize the score of our simulator resulted in our first reasonable breakthrough, a top 10 score.
 
@@ -74,35 +74,35 @@ Performing a grid search to minimize the score of our simulator resulted in our 
 With our new method and a top 10 score, we then committed to the idea of leaderboard hacking as a way to extract the most reliable weights we could then use to recalibrate our simulator and potentially refit our previous models. We then began to design our grid search.  From our experience with the leaderboard thus far, we knew that we’d need to start with a linear sweep (using values 0 – 9) as weights to get a general feel for how the leaderboard scores would look and then move on to an exponential refinement (using values 1, 2, 4, 8, 16, 32, 64, etc.) to analyze the non-linearity of the effects of singular packages on the scoring function. Unfortunately, we were up against a constraint. CryptoPond’s 3 submission per day rule. We stumbled upon an exploit for which we wrote a script that essentially stacked 20 submissions calls in a single API call and shot them through simultaneously, versus trying to submit them one by one. Turns out the API’s system counter wasn’t fully synced with the evaluator and, as a result, we were able to test a ton of submissions all in the same call.  To “more effectively perform discovery”, we employed a few extra Pond accounts and utilized them to execute the grid search.   This process was going smoothly and netted us a top 3 placing within a day.
 
 
-![](images/im14.png)
+<p align="center" width="100%"><img src="images/im14.png" alt="" style="width: 75%; max-width: 600px;"></p>
 
 The main insight from this search was that the multiplier from the training set was creating final weights for some packages that were orders of magnitude larger than others.  None of our traditional methods accounted for this and that is why each one failed. We contemplated sitting in 3rd place for a while, knowing we could further optimize, but we agreed to one last submission, and we accidentally jumped to the top of the leaderboard, with a HUGE lead.
 
-![](images/im15.png)
+<p align="center" width="100%"><img src="images/im15.png" alt="" style="width: 75%; max-width: 600px;"></p>
 
 While we were at the top, we felt that we might as well brag about it…
 
-![](images/im16.png)
+<p align="center" width="100%"><img src="images/im16.png" alt="" style="width: 75%; max-width: 600px;"></p>
 
 How did we know our position on the leaderboard wouldn’t last forever? First, because we know by nature of overfitting to the leaderboard, we were more subject to variability introduced by changes in the data.  If new data were to be introduced that happened to NOT be similar to the previous set of data, there was a good chance that our model would lose its place. Secondly, we knew our position wouldn’t last because the contest organizers did just that…they introduced more data at the last minute…
 
-![](images/im17.png)
+<p align="center" width="100%"><img src="images/im17.png" alt="" style="width: 50%; max-width: 600px;"></p>
 
 The leaderboard update did indeed change the scores and rank ordering of the top participants, but not by a huge amount.  This gave us even more confidence that our overfitting approach was working. Why?  In simplest terms, because on the backend the contest organizers knew there was inherent variability in the way jurors were making the pairwise selections and were actively trying to reduce variability. We were unaware of the exact mechanisms, but they were attempting to reign in the inherent inconsistencies between jurors and improve consistency even within individual jurors.  This meant that the “new, unforeseen, private” data was, in small ways, starting to converge to something consistent and if we continued seeking to minimize public leaderboard loss, we’d eventually minimize the private leaderboard loss as well. The update to the leaderboard helped confirm this.
 
-![](images/im18.png)
+<p align="center" width="100%"><img src="images/im18.png" alt="" style="width: 75%; max-width: 600px;"></p>
 
 Newly embolden, and channeling our inner Dr. Victor Von Doom, we alluded to our plan on Twitter.
 
-![](images/im19.png)
+<p align="center" width="100%"><img src="images/im19.png" alt="" style="width: 75%; max-width: 600px;"></p>
 
 And just like it says, “Pride comes before a fall”, we left our scripts running too long and the leaderboard went from this…
 
-![](images/im20.png)
+<p align="center" width="100%"><img src="images/im20.png" alt="" style="width: 75%; max-width: 600px;"></p>
 
 …to this…
 
-![](images/im21.png)
+<p align="center" width="100%"><img src="images/im21.png" alt="" style="width: 75%; max-width: 600px;"></p>
 
 We had accidentally blown up the leaderboard with our submissions.  Turns out the “exponential refinement” routine was starting to produce high scores on nearly every one of our submissions.  We had a backend procedure that allowed us to aggregate the results into one submission that we would then post officially on our account, unfortunately we let the automated scripts run too long and the dummy accounts were getting scored at the top spots.  As we said in the Telegram, “It's one thing to operate neatly in the shadows and then surprise everyone with a cool retrospective, but it is completely different when we vandalize your public leaderboard and it clearly looks botted.” 
 
