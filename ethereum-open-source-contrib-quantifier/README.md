@@ -192,16 +192,3 @@ In the end, __this was an awesome experience that expanded our understanding of 
 
   
  
----
-
-*Maintained with ❤️ by **Omniacs.DAO** – accelerating digital public goods through data.*
-
----
-
-🛠️ Do you want to see public goods win? Do want to support do-gooders that experiment across the open source web3 landscape? If so, grab a bag of [$IACS](http://dexscreener.com/base/0xd4d742cc8f54083f914a37e6b0c7b68c6005a024) on Base — CA: 0x46e69Fa9059C3D5F8933CA5E993158568DC80EBf and hodl to show your commitment to the digital commons! 
-
-
-
-
-
-
