@@ -151,38 +151,32 @@ In typical Omniac fashion, we jokingly celebrated our 6th place finish with a ch
 
 ## Addendums, Insights, Take Aways and Extensions
 
-As a little bit of an addendum, we’ll talk about our experience with the supplemental prediction market setup by seer.pm. Seemingly out the blue, the prediction market was announced to the Telegram …
-
-
-and just viewing the site itself at
+As a little bit of an addendum, __we’ll talk about our experience with the supplemental prediction market__ setup by [seer.pm](https://app.seer.pm/). Seemingly out the blue, the prediction market was announced to the Telegram …
 
 <p align="center" width="100%"><img src="images/im32.png" alt="" style="width: 50%; max-width: 600px;"></p>
 
-It included a list of participants who were given partial grants to stake and trade based on their predictions. 
+The announcement also included __a list of participants who were given partial grants to stake and trade based on their predictions__. 
 
 <p align="center" width="100%"><img src="images/im33.png" alt="" style="width: 75%; max-width: 600px;"></p>
 
-After reading the documentation on the mathematical underpinnings, https://ethresear.ch/t/deep-funding-a-prediction-market-for-open-source-dependencies/23101, the participation guide, 
-https://docs.google.com/document/d/1N4XVq_hC98j6oV2kaXiDY8YV43JnBlcyz4QhEuA7DXQ/edit?usp=drivesdk
-the market at https://app.seer.pm/markets/10/what-will-be-the-juror-weight-computed-through-huber-loss-minimization-in-the-lo-2?outcome=argotorg%2Fsolidity and the app itself hosted at deep.seer.pm … we were even more confused 
-There were a few important implementations by the lead engineering Clement that made us a bit more comfortable trying.
+After reading the documentation on the [mathematical underpinnings](https://ethresear.ch/t/deep-funding-a-prediction-market-for-open-source-dependencies/23101), the [participation guide](https://docs.google.com/document/d/1N4XVq_hC98j6oV2kaXiDY8YV43JnBlcyz4QhEuA7DXQ/edit?usp=drivesdk), 
+the [market](https://app.seer.pm/markets/10/what-will-be-the-juror-weight-computed-through-huber-loss-minimization-in-the-lo-2?outcome=argotorg%2Fsolidity)  and the [app itself](deep.seer.pm) … we were even more confused 😅. After a few days, there were a few important implementations by the lead engineering Clement that made us a bit more comfortable trying.
 
 <p align="center" width="100%"><img src="images/im34.png" alt="" style="width: 50%; max-width: 600px;"></p>
 
-In the spirit of cooperation, and to partially make up for our past sins, we tested out the platform, typed up our experience, and shared a set of videos in the Telegram that were later summarized on Twitter here: https://x.com/OmniacsDAO/status/1973434479856267271
-
+In the __spirit of cooperation, and to partially make up for our past sins__ 😅, we tested out the platform, typed up our experience, and shared a set of videos in the Telegram that were later summarized on Twitter here: https://x.com/OmniacsDAO/status/1973434479856267271
 
 <p align="center" width="100%"><img src="images/im35.png" alt="" style="width: 75%; max-width: 600px;"></p>
 
-Once we made our first “trade”, we weren’t exactly certain as to what had happened, but after rereading everything we recognized that “trading” in this sense meant purchasing tokens of repositories that had current weights that were below our model’s anticipated weights. 
+Once we made our first “trade”, we weren’t exactly certain as to what had happened, but after rereading everything __we recognized that “trading” in this sense meant purchasing tokens of repositories that had current weights that were below our model’s anticipated weights.__ 
 
 <p align="center" width="100%"><img src="images/im36.png" alt="" style="width: 50%; max-width: 600px;"></p>
 
-This is where we recognized our first disconnect, after making our first trade, we no longer cared about what our weights necessarily were, we only cared about how much weight the packages we had lots of tokens for would resolve to. The higher their weights, the more money we would make . There were a few times, after we released our video, that some of the other data scientists interacting with the market accidentally bid up some of the packages beyond what was reasonable. 
+This is where we recognized our first disconnect, __after making our first trade, we no longer cared about what our weights necessarily were, we only cared about how much weight the packages we had lots of tokens for would resolve to__. The higher their weights, the more money we would make 😅. As other data scientists particpate, the weights would move up and down, generating market inefficiencies, and therefore, trading opportunities.  __There were a few times__, after we released our video, that some of __the other data scientists__ interacting with the market __accidentally bid up some of the packages beyond what was reasonable__. 
 
 <p align="center" width="100%"><img src="images/im37.png" alt="" style="width: 100%; max-width: 600px;"></p>
 
-In these times, such as when the “argotorg/act” repo briefly went to a weight of .075.  Considering we had 12682.04 tokens, it would have been really nice had we been able to sell on the spot for ~$950 . Unfortunately, the user interface didn’t display liquidity not allowed for the easy divesting of singular positioned.  We later found out a way to do so, but didn’t want to completely botch our position experimenting with the seer implemented trading strategies. Having said that, just this small experience of tracking the package weights overtime made it apparently obvious that interacting with the prediction market for these weights was fundamentally different than trying to build a model to more accurately predict the weights.  The objectives of a participant in a prediction market are to make money, and the weights you walk into the market with are just your initial baseline to start your trading position. Diligent tracking of the prices, an early, fast, and reliable execution backend, as well as a prudent risk management strategy are the prerequisite to successfully stepping out of a prediction market in the money. We had only one of these, speed and luck. Speed because we were early in participating and therefore got “good” prices on all of the packages we purchased, and luck because the final resolved weights were heavily in favor of some of the tokens we purchased. 
+__Unfortunately UI shortcomings and time contraints prevented us from attmpting to take advantage of these in efficiencies__. In one such moment, __the “argotorg/act” repo briefly went to a weight of .075.  Considering we had 12682.04 tokens, it would have been really nice had we been able to sell on the spot for ~$950__, considering we were certain it would not recieve such a large portion at resolution.  At the time of this writing, the “argotorg/act” repo is set to resolve at a weight of 0.00072661. Unfortunately, the user interface didn’t display liquidity nor allowed for the easy divesting of singular positioned.  We later found out a way to do so, but didn’t want to completely botch our position experimenting with the seer implemented trading strategies. Having said that, just this small experience of tracking the package weights over time made it __apparently obvious that interacting with the prediction market for these weights was fundamentally different than trying to build a model to more accurately predict the weights__.  The objectives of a participant in a prediction market are to make money and the weights you walk into the market with are just your initial baseline to start your trading position. __Diligent tracking of the prices, an early, fast, and reliable execution backend, as well as a prudent risk management strategy are the prerequisite to successfully stepping out of a prediction market in the money__. We, admittingly, had only one of these, speed and a bit of luck. Speed because we were early in participating and therefore got “good” prices on all of the packages we purchased, and luck because the final resolved weights were heavily in favor of some of the tokens we purchased. 
 
 <p align="center" width="100%"><img src="images/im38.png" alt="" style="width: 100%; max-width: 600px;"></p>
 
@@ -190,8 +184,8 @@ In these times, such as when the “argotorg/act” repo briefly went to a weigh
 
 <p align="center" width="100%"><img src="images/im39.png" alt="" style="width: 50%; max-width: 600px;"></p>
 
-In the end, this was an awesome experience that expanded our understanding of Ethereum infrastructure, public goods funding, and even a tad about prediction markets.  We’d love to do some research using AI to replicate human judgement. The process would be emulating a RLHF procedure where we’d have the jurors complete a survey on what they think makes for a good infrastructure package, have them perform a few sample comparisons, convert these juror preferences into a “juror specific” prompt that can be used to make other comparisons.  We’d then create the feedback loop where AI selected comparisons would be made using the juror prompt and then shown to the juror for which they’d then rate the quality of the comparisons. We’d then use that feedback to update the prompt, repeating the process as we track inter-rater reliability metrics as they converge between the AI and the juror.  This approach will likely yield valuable, scalable and accurate results.
-We look forward to working with all other public goods enthusiasts as we push the mission of an open world onward.
+In the end, __this was an awesome experience that expanded our understanding of Ethereum infrastructure, public goods funding, and even a tad about prediction markets__.  __We’d love to do some research into the use of AI to replicate human judgement__. The process would emulate a RLHF procedure where we’d have the jurors complete a survey on what they think makes for a good infrastructure package, have them perform a few sample comparisons, and then convert these juror preferences into a “juror specific” prompt that can be used to make other comparisons.  We’d then create the feedback loop where AI selected comparisons would be made using the juror prompt and show these comparisons to the juror who would then rate the quality of the selections. That feedback would then be used to update the prompt, repeating the process as we track inter-rater reliability metrics for convergence between the AI and the juror.  Given the write-ups and successful methodologies of the other participants, this approach will likely yield valuable, scalable and accurate results. We look forward to working with all other public goods enthusiasts as we push the mission of an open world onward.
+
 
 Do you want to see public goods win? Do want to support do-gooders that experiment across the open source web3 landscape? If so, grab a bag of $IACS and hodl to show your commitment to the digital commons! 
 
